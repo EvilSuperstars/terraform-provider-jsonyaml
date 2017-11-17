@@ -1,16 +1,16 @@
-# `yamldecode` Provider
+# `jsonyaml` Provider
 
-The Terraform [yamldecode](https://github.com/EvilSuperstars/terraform-provider-yamldecode) provider decodes a YAML string.
+The Terraform [jsonyaml](https://github.com/EvilSuperstars/terraform-provider-jsonyaml) provider converts JSON to YAML and vice-versa.
 
 This provider requires no configuration.
 
 ### Example Usage
 
 ```hcl
-provider "yamldecode" {}
+provider "jsonyaml" {}
 
-data "yamldecode_decode" "foo" {
-  input =<<EOS
+data "jsonyaml_y2j" "foo" {
+  yaml =<<EOS
 ---
 name: "Seattle",
 state: "WA"
@@ -20,20 +20,34 @@ EOS
 
 ## Data Sources
 
-### `yamldecode_decode`
+### `jsonyaml_j2y`
+
+Converts JSON to YAML.
 
 #### Argument Reference
 
 The following arguments are supported:
 
-* `input` - (Required, string) The YAML string that is to be decoded. The subset of YAML that can be decoded is limited - boolean, number, string, object with string values and array of strings.
+* `json` - (Required, string) The JSON string that is to be converted to YAML.
 
 #### Attributes Reference
 
 The following attributes are exported in addition to the above configuration:
 
-* `boolean` - (boolean) Boolean
-* `number` - (float) Number
-* `string` - (string) String
-* `object` - (map) Object with string values
-* `string_array` - (list) Array of strings
+* `yaml` - (string) The YAML string
+
+### `jsonyaml_y2j`
+
+Converts YAML to JSON.
+
+#### Argument Reference
+
+The following arguments are supported:
+
+* `yaml` - (Required, string) The YAML string that is to be converted to JSON.
+
+#### Attributes Reference
+
+The following attributes are exported in addition to the above configuration:
+
+* `json` - (string) The JSON string

@@ -1,4 +1,4 @@
-package decode
+package jsonyaml
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"

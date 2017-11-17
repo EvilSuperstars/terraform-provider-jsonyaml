@@ -1,4 +1,4 @@
-Terraform `yamldecode` Provider
+Terraform `jsonyaml` Provider
 ==============================
 
 Requirements
@@ -10,28 +10,28 @@ Requirements
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/EvilSuperstars/terraform-provider-yamldecode`
+Clone repository to: `$GOPATH/src/github.com/EvilSuperstars/terraform-provider-jsonyaml`
 
 ```sh
 $ mkdir -p $GOPATH/src/github.com/EvilSuperstars; cd $GOPATH/src/github.com/EvilSuperstars
-$ git clone git@github.com:EvilSuperstars/terraform-provider-yamldecode
+$ git clone git@github.com:EvilSuperstars/terraform-provider-jsonyaml
 ```
 
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-yamldecode
+$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-jsonyaml
 $ make build
 ```
 
 Run acceptance tests
 
 ```sh
-$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-yamldecode
+$ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-jsonyaml
 $ make testacc TEST=./decode/ TESTARGS='-run=TestDataSource_'
 ```
 
 Using The Provider
 ------------------
 
-See the [documentation](using.md) to get started using the [yamldecode](https://github.com/EvilSuperstars/terraform-provider-yamldecode) provider.
+See the [documentation](using.md) to get started using the [jsonyaml](https://github.com/EvilSuperstars/terraform-provider-jsonyaml) provider.
