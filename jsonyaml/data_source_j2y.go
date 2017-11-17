@@ -3,8 +3,8 @@ package jsonyaml
 import (
 	"time"
 
+	"github.com/ghodss/yaml"
 	"github.com/hashicorp/terraform/helper/schema"
-	"gopkg.in/yaml.v2"
 )
 
 func dataSourceJsonToYaml() *schema.Resource {
@@ -26,12 +26,13 @@ func dataSourceJsonToYaml() *schema.Resource {
 }
 
 func dataSourceJsonToYamlRead(d *schema.ResourceData, meta interface{}) error {
-	var input interface{}
-	if err := yaml.Unmarshal([]byte(d.Get("input").(string)), &input); err != nil {
+	yaml, err := yaml.JSONToYAML([]byte(d.Get("json").(string)))
+	if err != nil {
 		return err
 	}
 
 	d.SetId(time.Now().UTC().String())
+	d.Set("yaml", string(yaml))
 
 	return nil
 }
