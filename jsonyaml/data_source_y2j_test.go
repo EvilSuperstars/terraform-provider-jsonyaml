@@ -7,12 +7,18 @@ import (
 )
 
 const testDataSourceY2JConfig_basic = `
-provider "yamldecode" {}
+provider "jsonyaml" {}
 
-data "yamldecode_decode" "foo" {
-  input =<<EOS
+data "jsonyaml_y2j" "foo" {
+  yaml =<<EOS
 ---
-	true
+Key1: Value1
+Key2:
+  - 42
+  - true
+Key3:
+  Key1:
+    - Key1: Value1
 EOS
 }
 `
@@ -24,11 +30,7 @@ func TestDataSourceY2J_basic(t *testing.T) {
 			{
 				Config: testDataSourceY2JConfig_basic,
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("data.yamldecode_decode.foo", "boolean", "true"),
-					resource.TestCheckNoResourceAttr("data.yamldecode_decode.foo", "string_array"),
-					resource.TestCheckNoResourceAttr("data.yamldecode_decode.foo", "object"),
-					resource.TestCheckNoResourceAttr("data.yamldecode_decode.foo", "number"),
-					resource.TestCheckNoResourceAttr("data.yamldecode_decode.foo", "string"),
+					resource.TestCheckResourceAttrSet("data.jsonyaml_y2j.foo", "json"),
 				),
 			},
 		},

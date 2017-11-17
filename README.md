@@ -28,7 +28,7 @@ Run acceptance tests
 
 ```sh
 $ cd $GOPATH/src/github.com/EvilSuperstars/terraform-provider-jsonyaml
-$ make testacc TEST=./decode/ TESTARGS='-run=TestDataSource'
+$ make testacc TEST=./jsonyaml/ TESTARGS='-run=TestDataSource'
 ```
 
 Using The Provider

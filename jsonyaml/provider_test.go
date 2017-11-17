@@ -8,7 +8,7 @@ import (
 )
 
 var testProviders = map[string]terraform.ResourceProvider{
-	"yamldecode": Provider(),
+	"jsonyaml": Provider(),
 }
 
 func TestProvider(t *testing.T) {
