@@ -13,7 +13,8 @@ func Provider() terraform.ResourceProvider {
 		ResourcesMap: map[string]*schema.Resource{},
 
 		DataSourcesMap: map[string]*schema.Resource{
-			"yamldecode_decode": dataSourceDecode(),
+			"jsonyaml_j2y": dataSourceJsonToYaml(),
+			"jsonyaml_y2j": dataSourceYamlToJson(),
 		},
 	}
 }
