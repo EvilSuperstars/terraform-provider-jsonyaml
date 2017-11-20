@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ewbankkit/terraform-provider-jsonyaml/jsonyaml"
+	"github.com/EvilSuperstars/terraform-provider-jsonyaml/jsonyaml"
 	"github.com/hashicorp/terraform/plugin"
 )
 
