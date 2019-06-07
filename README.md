@@ -1,6 +1,8 @@
 Terraform `jsonyaml` Provider
 ==============================
 
+## This Terraform provider has been obsoleted by the new Terraform 0.12.2 [`yamldecode`](https://github.com/hashicorp/terraform/pull/21459) interpolation function.
+
 Requirements
 ------------
 
